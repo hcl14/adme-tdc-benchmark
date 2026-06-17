@@ -1,0 +1,180 @@
+============================================================
+ADME-T DATASETS & BENCHMARK PAPERS — organized by metric
+============================================================
+
+------------------------------------------------------------
+COMPREHENSIVE ADMET BENCHMARK COLLECTIONS
+------------------------------------------------------------
+TDC — Therapeutics Data Commons (22 ADMET datasets, standardized splits)
+  Paper: https://arxiv.org/abs/2102.09548
+  Platform: https://tdcommons.ai/benchmark/admet_group/overview/
+  GitHub: https://github.com/mims-harvard/TDC/blob/master/tdc/metadata.py
+
+MoleculeNet (16 datasets, classification + regression)
+  Paper: https://arxiv.org/abs/1703.00564
+
+ADMET property prediction through combinations of molecular fingerprints (2023)
+  Paper: https://arxiv.org/abs/2310.00174
+
+SMILES-Mamba: Chemical Mamba Foundation Models for Drug ADMET Prediction (2024)
+  Paper: https://arxiv.org/abs/2408.05696
+
+------------------------------------------------------------
+LIPOPHILICITY (Log P / Log D)
+------------------------------------------------------------
+Lipophilicity_AstraZeneca — 4,200 molecules, log D7.4, regression [TDC]
+  Dataset via TDC: https://tdcommons.ai/single_pred_tasks/adme/#lipophilicity-astrazeneca
+
+SAMPL7 logP blind challenge (~24 molecules, experimental)
+  Results: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8367913/
+
+Diagnosing Heteroskedasticity in Physicochemical Property Prediction (2026, 426k molecules)
+  Paper: https://arxiv.org/abs/2512.24643
+
+------------------------------------------------------------
+AQUEOUS SOLUBILITY (Log S)
+------------------------------------------------------------
+ESOL — 1,128 molecules, LogS, regression (Delaney 2004) [MoleculeNet / TDC]
+  TDC: https://tdcommons.ai/single_pred_tasks/adme/#solubility-aqsoldb
+
+AqSolDB — 9,982 molecules, LogS, regression [TDC: Solubility_AqSolDB]
+  Dataset via TDC: https://tdcommons.ai/single_pred_tasks/adme/#solubility-aqsoldb
+
+Predicting small molecules solubility on endpoint devices (2023, XGBoost, R²=0.918)
+  Paper: https://arxiv.org/abs/2307.05318
+
+A Systematic Survey and Benchmark of Deep Learning for Molecular Property Prediction (2025)
+  Paper: https://arxiv.org/abs/2604.16586
+
+------------------------------------------------------------
+GI ABSORPTION / INTESTINAL ABSORPTION / Caco-2
+------------------------------------------------------------
+HIA_Hou — 578 molecules, binary classification (AUROC) [TDC]
+  TDC: https://tdcommons.ai/single_pred_tasks/adme/#hia-hou
+
+Caco2_Wang — 906 molecules, regression log Papp [TDC]
+  TDC: https://tdcommons.ai/single_pred_tasks/adme/#caco-2-wang
+
+Bioavailability_Ma — 640 molecules, binary classification (F≥20%) [TDC]
+  TDC: https://tdcommons.ai/single_pred_tasks/adme/#bioavailability-ma
+
+------------------------------------------------------------
+BBB PERMEABILITY
+------------------------------------------------------------
+BBB_Martins — 1,975 molecules, binary classification (AUROC) [TDC]
+  TDC: https://tdcommons.ai/single_pred_tasks/adme/#bbb-martins
+
+B3DB — 7,807 molecules (categorical) + 1,058 (numerical log BB), open
+  GitHub: https://github.com/theochem/B3DB
+  Paper: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8556334/
+
+Attentive GNN for BBB permeability prediction (2024)
+  Paper: https://www.biorxiv.org/content/10.1101/2024.10.12.617907v1.full
+
+------------------------------------------------------------
+P-GLYCOPROTEIN (Pgp substrate/inhibitor)
+------------------------------------------------------------
+Pgp_Broccatelli — 1,212 molecules, binary classification (AUROC=0.938 best) [TDC]
+  TDC: https://tdcommons.ai/single_pred_tasks/adme/#pgp-broccatelli
+
+Computationally accelerated identification of P-glycoprotein inhibitors (biorxiv 2024)
+  Paper: https://www.biorxiv.org/content/10.1101/2024.03.05.583428v2.full
+
+High-throughput screen of P-glycoprotein substrates (biorxiv)
+  Paper: https://www.biorxiv.org/content/10.1101/528992v1.full
+
+------------------------------------------------------------
+CYP450 INHIBITION (CYP1A2, CYP2C19, CYP2C9, CYP2D6, CYP3A4)
+------------------------------------------------------------
+TDC — CYP inhibition datasets (Veith et al.), binary classification (AUPRC):
+  CYP2C9_Veith  — 12,092 molecules
+  CYP2D6_Veith  — 13,130 molecules
+  CYP3A4_Veith  — 12,328 molecules
+  CYP2C9_Substrate — 666 molecules
+  CYP2D6_Substrate — 664 molecules
+  CYP3A4_Substrate — 667 molecules
+  TDC: https://tdcommons.ai/single_pred_tasks/adme/#cyp-p450-2c19-inhibition-veith-et-al
+
+Note: CYP1A2 and CYP2C19 inhibition also available in original Veith dataset via ChEMBL.
+
+Enhancing CYP450-Ligand Binding Predictions (biorxiv 2025)
+  Paper: https://www.biorxiv.org/content/10.1101/2025.06.05.658010v1.full
+
+Robust ML Framework for CYP450 Inhibition (2023)
+  Paper: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10357106/
+
+------------------------------------------------------------
+SKIN PERMEABILITY (log Kp)
+------------------------------------------------------------
+HuskinDB — 585 compounds, logKp, multiple conditions, open
+  Database: https://huskindb.drug-design.de/data/
+
+An update of skin permeability data (systematic review, 2024)
+  Paper: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10881585/
+
+Fragment contribution models using HuskinDB (2023)
+  Paper: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10667307/
+
+------------------------------------------------------------
+DISTRIBUTION (PPBR, VDss)
+------------------------------------------------------------
+PPBR_AZ — 1,797 molecules, plasma protein binding (regression) [TDC]
+  TDC: https://tdcommons.ai/single_pred_tasks/adme/#plasma-protein-binding-rate-az
+
+VDss_Lombardo — 1,130 molecules, volume of distribution (Spearman) [TDC]
+  TDC: https://tdcommons.ai/single_pred_tasks/adme/#volume-of-distribution-lombardo
+
+DeepPK data (absorption, distribution)
+  Data: https://biosig.lab.uq.edu.au/deeppk/data
+
+------------------------------------------------------------
+EXCRETION (Clearance, Half-life)
+------------------------------------------------------------
+Half_Life_Obach — 667 molecules, regression (Spearman) [TDC]
+  TDC: https://tdcommons.ai/single_pred_tasks/adme/#half-life-obach
+
+Clearance_Hepatocyte_AZ — 1,020 molecules [TDC]
+Clearance_Microsome_AZ — 1,102 molecules [TDC]
+  TDC: https://tdcommons.ai/single_pred_tasks/adme/#drug-clearance-hepatocyte-az
+
+------------------------------------------------------------
+TOXICITY (AMES, hERG, LD50, DILI, Skin sensitization)
+------------------------------------------------------------
+AMES — 7,255 molecules, mutagenicity, binary classification (AUROC) [TDC]
+  TDC: https://tdcommons.ai/single_pred_tasks/tox/#ames-mutagenicty-Hansen-et-al
+
+hERG — 648 molecules, cardiotoxicity, binary classification (AUROC) [TDC]
+  TDC: https://tdcommons.ai/single_pred_tasks/tox/#herg-karim-et-al
+
+LD50_Zhu — 7,385 molecules, acute oral toxicity (regression, MAE) [TDC]
+  TDC: https://tdcommons.ai/single_pred_tasks/tox/#acute-toxicity-ld50-zhu-et-al
+
+DILI — 475 molecules, drug-induced liver injury, binary classification (AUROC) [TDC]
+  TDC: https://tdcommons.ai/single_pred_tasks/tox/#drug-induced-liver-injury-dili
+
+SkinSensDB — 710 compounds, AOP-based skin sensitization assays
+  Database: https://cwtung.kmu.edu.tw/skinsensdb/
+  Data (TSV): data-20180205.tsv (local)
+  Paper: s13321-017-0194-2.pdf (local)
+
+Globus Labs toxicity prediction datasets
+  GitHub: https://github.com/globus-labs/toxicity-prediction/tree/7c880f55903877cfe45156fd09ec5d235131ad22/admet
+
+------------------------------------------------------------
+SYNTHETIC ACCESSIBILITY / DRUG-LIKENESS FILTERS
+------------------------------------------------------------
+Note: Lipinski, Ghose, Veber, Egan, Muegge, PAINS, Brenk are deterministic
+rule-based filters (implemented in RDKit) — no ML benchmark exists for them.
+Bioavailability Score is also a composite rule-based score.
+
+SDDBench — benchmark for synthesizability via retrosynthetic planning (2024)
+  Paper: https://arxiv.org/abs/2411.08306
+
+FSscore — ML-based synthetic feasibility score (2023)
+  Paper: https://arxiv.org/abs/2312.12737
+
+WelQrate — gold standard small molecule benchmarking with PAINS filtering (2024)
+  Paper: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11601797/
+
+Harvard Dataverse (general molecular datasets)
+  Platform: https://dataverse.harvard.edu/

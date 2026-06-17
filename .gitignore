@@ -37,8 +37,7 @@ ADMET_DATASET_COMPATIBILITY.md
 ADMET_DATA_AVAILABILITY.md
 ADMET_SOTA_BENCHMARKS.md
 
-# Paper PDFs (copyright)
-papers/*.pdf
+# Raw paper data files (not PDFs — those are included)
 papers/*.tsv
 
 # Misc

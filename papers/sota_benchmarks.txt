@@ -1,0 +1,311 @@
+SOTA BENCHMARKS FOR TRAINABLE ADME-T METRICS
+================================================
+Sources: TDC leaderboards (tdcommons.ai), arxiv, biorxiv, openreview
+Cross-validated against: Critical Assessment of TDC ADMET leaderboards (biorxiv 2026)
+Date compiled: June 2026
+
+IMPORTANT NOTE ON REPRODUCIBILITY
+----------------------------------
+A 2026 critical assessment (biorxiv:2026.02.26.708193) found that most top-ranked
+TDC models had data leakage, unavailable code, or non-reproducible execution environments.
+Only 3 methods passed ALL reproducibility checks:
+  - CaliciBoost (Caco2 only)
+  - MapLight
+  - MapLight + GNN
+MiniMol (listed #1 on several leaderboards) has documented data leakage issues.
+Scores below list both "official TDC rank" and "verified SOTA" where they differ.
+
+============================================================
+1. AQUEOUS SOLUBILITY (log S)
+============================================================
+Dataset:   Solubility_AqSolDB (TDC) — 9,982 molecules, regression
+Metric:    MAE (log mol/L) — lower is better
+Split:     scaffold-based
+
+| Model             | MAE           | Status    |
+|-------------------|---------------|-----------|
+| MiniMol           | 0.741 ± 0.013 | LEAKAGE   |
+| Chemprop-RDKit    | 0.761 ± 0.025 | VERIFIED  |
+| DeepMol (AutoML)  | 0.775 ± 0.006 | unverified|
+| AttentiveFP       | 0.776 ± 0.008 | unverified|
+| MapLight + GNN    | 0.789 ± 0.003 | VERIFIED  |
+| MapLight          | 0.792 ± 0.002 | VERIFIED  |
+| Chemprop          | 0.829 ± 0.022 | VERIFIED  |
+
+Verified SOTA:  Chemprop-RDKit   MAE = 0.761
+                MapLight + GNN   MAE = 0.789
+
+Key papers:
+  - Chemprop: https://pubs.acs.org/doi/full/10.1021/acs.jcim.9b00237
+  - MapLight:  https://arxiv.org/abs/2310.00174
+  - Survey:    https://arxiv.org/abs/2604.16586
+
+Cross-validation (ESOL dataset, 1,128 mol): XGBoost with 2D/3D Mordred,
+  R² = 0.918, RMSE = 0.613 (arxiv:2307.05318). Delaney eq. RMSE ~0.85.
+
+============================================================
+2. GI ABSORPTION — Human Intestinal Absorption (HIA)
+============================================================
+Dataset:   HIA_Hou (TDC) — 578 molecules, binary classification
+Metric:    AUROC — higher is better
+Split:     scaffold-based
+
+| Model             | AUROC         | Status    |
+|-------------------|---------------|-----------|
+| MiniMol           | 0.993 ± 0.005 | LEAKAGE   |
+| DeepMol (AutoML)  | 0.990 ± 0.002 | unverified|
+| MapLight + GNN    | 0.989 ± 0.001 | VERIFIED  |
+| MapLight          | 0.986 ± 0.000 | VERIFIED  |
+| Chemprop-RDKit    | 0.981 ± 0.002 | VERIFIED  |
+
+Verified SOTA:  MapLight + GNN   AUROC = 0.989
+
+Complementary: Caco2_Wang (906 mol, regression MAE):
+  - CaliciBoost   MAE = 0.256 ± 0.006  [VERIFIED, TDC #1]
+    Method: AutoML on PaDEL/Mordred descriptors + 3D features
+    Paper: https://arxiv.org/abs/2506.08059 (J. Cheminformatics 2025)
+  - MapLight+GNN  MAE = 0.287 ± 0.005  [VERIFIED]
+
+Key papers:
+  - CaliciBoost: https://arxiv.org/abs/2506.08059
+  - MapLight:    https://arxiv.org/abs/2310.00174
+
+============================================================
+3. ORAL BIOAVAILABILITY
+============================================================
+Dataset:   Bioavailability_Ma (TDC) — 640 molecules, binary (F ≥ 20%)
+Metric:    AUROC — higher is better
+
+| Model             | AUROC         | Status    |
+|-------------------|---------------|-----------|
+| MiniMol           | 0.942 ± 0.002 | LEAKAGE   |
+| MapLight + GNN    | 0.938 ± 0.002 | VERIFIED* |
+| ZairaChem         | 0.935 ± 0.006 | unverified|
+| MapLight          | 0.930 ± 0.002 | VERIFIED* |
+
+* Critical assessment found MapLight/MapLight+GNN have markedly lower reproduced
+  scores on this specific endpoint — treat with caution.
+
+Verified SOTA (conservative):  MapLight + GNN  AUROC ~0.938
+Note: This is the hardest endpoint to reproduce; true SOTA is uncertain.
+
+============================================================
+4. BLOOD-BRAIN BARRIER (BBB) PERMEABILITY
+============================================================
+Dataset:   BBB_Martins (TDC) — 1,975 molecules, binary classification
+Metric:    AUROC — higher is better
+
+| Model                  | AUROC         | Status    |
+|------------------------|---------------|-----------|
+| MiniMol                | 0.924 ± 0.003 | LEAKAGE   |
+| CFA                    | 0.920 ± 0.006 | unverified|
+| MapLight               | 0.916 ± 0.001 | VERIFIED  |
+| Lantern RADR Ensemble  | 0.915 ± 0.002 | unverified|
+| MapLight + GNN         | 0.913 ± 0.001 | VERIFIED  |
+
+Verified SOTA:  MapLight   AUROC = 0.916
+
+Also: GMC-MPNN (Geometric Multi-color Message Passing GNN, July 2025)
+  reports SOTA on scaffold-split BBB datasets (AUROC not in TDC format)
+  Paper: https://arxiv.org/abs/2507.18926
+
+Larger dataset: B3DB (7,807 categorical + 1,058 numerical log BB)
+  GitHub: https://github.com/theochem/B3DB
+  Best models: Transformer accuracy 0.97, AUC 0.98 (arxiv:2409.04909)
+  (different split from TDC — not directly comparable)
+
+Key papers:
+  - MapLight:  https://arxiv.org/abs/2310.00174
+  - GMC-MPNN: https://arxiv.org/abs/2507.18926
+  - B3DB:      https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8556334/
+
+============================================================
+5. P-GLYCOPROTEIN (Pgp) SUBSTRATE
+============================================================
+Dataset:   Pgp_Broccatelli (TDC) — 1,212 molecules, binary classification
+Metric:    AUROC — higher is better
+
+| Model             | AUROC         | Status    |
+|-------------------|---------------|-----------|
+| MapLight + GNN    | 0.938 ± 0.002 | VERIFIED  |
+| ZairaChem         | 0.935 ± 0.006 | unverified|
+| MapLight          | 0.930 ± 0.002 | VERIFIED  |
+| AttrMasking       | 0.929 ± 0.006 | unverified|
+| Chemprop-RDKit    | 0.886 ± 0.016 | VERIFIED  |
+
+Verified SOTA:  MapLight + GNN   AUROC = 0.938
+
+Key paper: https://arxiv.org/abs/2310.00174
+Also:   https://www.biorxiv.org/content/10.1101/2024.03.05.583428v2.full
+  (identifies 9 novel Pgp inhibitors using computational pipeline, hit rate 13.4%)
+
+============================================================
+6. SKIN PERMEABILITY (log Kp)
+============================================================
+Dataset:   HuskinDB — ~585 compounds, regression (log Kp cm/s)
+           No standardized TDC benchmark exists for this endpoint.
+Metric:    R², RMSE — dataset-dependent
+
+Best reported results (not on a unified leaderboard):
+  - Fragment contribution model on HuskinDB:
+      R²=0.50 (train, n=144), R²=0.40 (test, n=36), RMSE=0.96
+      Paper: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10667307/
+  - ML models (LGBM, XGBoost, GBM) on curated 441-record dataset:
+      Best: LGBM/XGBoost outperform others; specific R² not extracted
+      Paper: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10990209/
+  - MD simulation (physics-based, not ML):
+      validated against cryo-EM skin model
+      Paper: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9674988/
+
+NOTE: Skin permeability is the weakest benchmark here — small datasets (~100-500
+molecules), no standardized split, fragmented literature. HuskinDB is the best
+open database. pkCSM (local paper) reported R²=0.683/0.801 on Alves dataset (51 mol).
+
+Key database: https://huskindb.drug-design.de/data/
+Systematic review update (2024): https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10881585/
+
+============================================================
+7. CYP1A2 INHIBITOR
+============================================================
+Dataset:   Veith et al. via ChEMBL — ~12,000 molecules
+           NOT included in TDC ADMET group (no standardized TDC leaderboard)
+Metric:    AUC (AUROC)
+
+Best reported:
+  - DEEPCYPs (multi-task FP-GNN, 2023): AUC = 0.930 on held-out test (n=1,000)
+    Training set: ~10,000 molecules
+    Paper: https://pmc.ncbi.nlm.nih.gov/articles/PMC10123292/
+  - Robust ML Framework (majority voting, 2023): AUC ~0.88-0.92 (isoform average)
+    Paper: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10357106/
+
+Cross-validation: Both studies agree CYP1A2 is the easiest isoform (highest AUC).
+The multi-task approach consistently outperforms single-task models.
+
+============================================================
+8. CYP2C19 INHIBITOR
+============================================================
+Dataset:   Veith et al. via ChEMBL — ~12,000 molecules
+           NOT included in TDC ADMET group (no standardized TDC leaderboard)
+Metric:    AUC (AUROC)
+
+Best reported:
+  - DEEPCYPs (multi-task FP-GNN, 2023): AUC = 0.900 on held-out test (n=1,000)
+    Paper: https://pmc.ncbi.nlm.nih.gov/articles/PMC10123292/
+
+Cross-validation: Consistent with pkCSM paper (local) AUC=0.879 (2015, smaller dataset).
+Note: CYP2C19 and CYP2C9 are structurally similar — multi-task models benefit most here.
+
+============================================================
+9. CYP2C9 INHIBITOR
+============================================================
+Dataset:   CYP2C9_Veith (TDC) — 12,092 molecules, binary classification
+Metric:    AUPRC (class-imbalanced) — higher is better
+
+| Model             | AUPRC         | Status    |
+|-------------------|---------------|-----------|
+| MapLight + GNN    | 0.859 ± 0.001 | VERIFIED  |
+| MapLight          | ~0.845        | VERIFIED  |
+
+Verified SOTA:  MapLight + GNN   AUPRC = 0.859
+
+Also: DEEPCYPs AUC (AUROC) = 0.902 — different metric, not directly comparable
+Paper: https://arxiv.org/abs/2310.00174
+
+NovoExpert-2 (ChemRxiv 2026): focuses on CYP2D6 and CYP3A4, CYP2C9 not highlighted.
+
+============================================================
+10. CYP2D6 INHIBITOR
+============================================================
+Dataset:   CYP2D6_Veith (TDC) — 13,130 molecules (16.9% positive), binary
+Metric:    AUPRC — higher is better (AUROC inflated due to class imbalance)
+
+| Model             | AUPRC         | Status    |
+|-------------------|---------------|-----------|
+| MapLight + GNN    | 0.790 ± 0.001 | VERIFIED  |
+| NovoExpert-2      | 0.778         | unverified|
+| MapLight          | ~0.778        | VERIFIED  |
+
+Verified SOTA:  MapLight + GNN   AUPRC = 0.790
+Also: DEEPCYPs AUC (AUROC) = 0.883 (not comparable metric)
+
+Key papers:
+  - MapLight+GNN: https://arxiv.org/abs/2310.00174
+  - NovoExpert-2: https://chemrxiv.org/doi/10.26434/chemrxiv.15000061
+
+============================================================
+11. CYP3A4 INHIBITOR
+============================================================
+Dataset:   CYP3A4_Veith (TDC) — 12,328 molecules, binary
+Metric:    AUPRC — higher is better
+
+| Model             | AUPRC         | Status    |
+|-------------------|---------------|-----------|
+| MapLight + GNN    | 0.916 ± 0.000 | VERIFIED  |
+| NovoExpert-2      | 0.916         | unverified|
+| MapLight          | ~0.900        | VERIFIED  |
+
+Verified SOTA:  MapLight + GNN   AUPRC = 0.916  (tied with NovoExpert-2)
+Also: DEEPCYPs AUC (AUROC) = 0.911
+
+============================================================
+SUMMARY TABLE
+============================================================
+
+Metric              | Dataset (n)          | Metric | Verified SOTA Model  | Score
+--------------------|----------------------|--------|----------------------|-------
+ESOL Log S          | AqSolDB (9,982)      | MAE↓   | Chemprop-RDKit       | 0.761
+GI absorption (HIA) | HIA_Hou (578)        | AUROC↑ | MapLight + GNN       | 0.989
+GI absorption (Caco2)| Caco2_Wang (906)    | MAE↓   | CaliciBoost          | 0.256
+Bioavailability     | Bioavailability_Ma (640)| AUROC↑| MapLight + GNN      | ~0.938*
+BBB permeant        | BBB_Martins (1,975)  | AUROC↑ | MapLight             | 0.916
+Pgp substrate       | Pgp_Broccatelli (1,212)| AUROC↑| MapLight + GNN      | 0.938
+log Kp (skin)       | HuskinDB (~585)      | R²↑    | LGBM/XGBoost         | ~0.50†
+CYP1A2 inhibitor    | Veith/ChEMBL (~12k)  | AUROC↑ | DEEPCYPs (FP-GNN)    | 0.930
+CYP2C19 inhibitor   | Veith/ChEMBL (~12k)  | AUROC↑ | DEEPCYPs (FP-GNN)    | 0.900
+CYP2C9 inhibitor    | CYP2C9_Veith (12,092)| AUPRC↑ | MapLight + GNN       | 0.859
+CYP2D6 inhibitor    | CYP2D6_Veith (13,130)| AUPRC↑ | MapLight + GNN       | 0.790
+CYP3A4 inhibitor    | CYP3A4_Veith (12,328)| AUPRC↑ | MapLight + GNN       | 0.916
+
+* Reproducibility issues on this endpoint — treat with caution
+† Very small test sets (~36 mol); skin permeability lacks a standardized benchmark
+
+============================================================
+KEY PAPERS (sorted by importance)
+============================================================
+[1] MapLight (ADMET via fingerprints, arxiv 2023) — SOTA on 7+ TDC endpoints
+    https://arxiv.org/abs/2310.00174
+
+[2] Critical Assessment of TDC leaderboards (biorxiv 2026) — reproducibility analysis
+    https://www.biorxiv.org/content/10.64898/2026.02.26.708193v1.full
+
+[3] CaliciBoost — Caco2 SOTA (arxiv/J.Cheminform 2025)
+    https://arxiv.org/abs/2506.08059
+
+[4] DEEPCYPs — CYP1A2/2C19 SOTA (PMC 2023)
+    https://pmc.ncbi.nlm.nih.gov/articles/PMC10123292/
+
+[5] NovoExpert-2 — CYP2D6/3A4 SOTA (ChemRxiv 2026)
+    https://chemrxiv.org/doi/10.26434/chemrxiv.15000061
+
+[6] Chemprop — backbone for solubility/lipophilicity (JCIM 2019)
+    https://pubs.acs.org/doi/full/10.1021/acs.jcim.9b00237
+
+[7] MiniMol — strong but data-leakage flagged (OpenReview 2024)
+    https://openreview.net/pdf?id=uA8zvXmiot
+    https://arxiv.org/abs/2404.14986
+
+[8] GMC-MPNN — BBB SOTA outside TDC (arxiv July 2025)
+    https://arxiv.org/abs/2507.18926
+
+[9] B3DB — largest open BBB dataset (7,807 mol)
+    https://github.com/theochem/B3DB
+
+[10] HuskinDB — best open skin permeability database
+    https://huskindb.drug-design.de/data/
+    https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10667307/
+
+[11] Systematic survey DL for mol. property prediction (arxiv 2026)
+    https://arxiv.org/abs/2604.16586
+
+[12] SMILES-Mamba — comprehensive ADMET prediction (arxiv 2024)
+    https://arxiv.org/abs/2408.05696
