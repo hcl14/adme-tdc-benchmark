@@ -43,6 +43,5 @@ papers/*.tsv
 # Misc
 *.DS_Store
 .env
-top1000_with_adme.csv
 chemrxiv.15000061_v2.pdf
 adme_metrics.txt
