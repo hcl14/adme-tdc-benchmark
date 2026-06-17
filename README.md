@@ -81,6 +81,42 @@ Chemprop implementation.
 
 ---
 
+### Is the verified SOTA for solubility really from 2019?
+
+**Short answer: yes — and that itself is the finding.**
+
+The Chemprop-RDKit architecture [[4]](#references) was published in 2019, but the result on
+this exact split (TDC AqSolDB scaffold, MAE 0.761) was measured later when TDC launched in
+2021. More recent methods do claim to beat it:
+
+| Method | MAE | Status |
+|---|---|---|
+| MiniMol | 0.741 | ❌ **data leakage** (Koleiev 2026 [[2]](#references)) |
+| DeepMol (AutoML) | 0.775 | unverified / not independently reproduced |
+| AttentiveFP | 0.776 | unverified |
+| **Chemprop-RDKit** | **0.761** | ✅ verified SOTA |
+
+Every published result that beats 0.761 has either been caught with data leakage or cannot
+be reproduced from the provided code. This is precisely what the Koleiev 2026 audit [[2]](#references) found.
+
+Why does a 2019 architecture hold up? Three reasons:
+
+1. **Small dataset**: AqSolDB has ~9,982 molecules. Large pretrained transformers and
+   foundation models get their scale advantage from millions of examples — they can't
+   meaningfully leverage pre-training on a task this size.
+2. **The architecture is well-matched**: D-MPNN does directed message passing on the
+   molecular graph, which is a mathematically natural representation of bonding topology.
+   The fundamental structure hasn't been superseded for small regression tasks.
+3. **Experimental noise floor**: solubility measurements have lab-to-lab variability of
+   ~0.5–0.7 log units. Below MAE ≈ 0.75, you are predicting measurement noise, not a
+   real molecular property. The "gap" between 0.761 and any hypothetical 0.720 is probably
+   not meaningful in practice.
+
+So Arsen's intuition is correct — but the lesson is: **newer ≠ better verified**. The
+benchmark reflects the honest state of reproducible science on this split as of mid-2026.
+
+---
+
 ## Why this is verified SOTA (June 2026)
 
 The TDC ADMET leaderboards list dozens of methods, many with scores above MapLight+GNN.
