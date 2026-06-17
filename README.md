@@ -14,8 +14,8 @@ pipeline. Trained checkpoints are included so you can run inference immediately.
 Icon legend:
 | Icon | Meaning |
 |------|---------|
-| 🟢 | Beats verified SOTA (Δ > 0) |
-| 🟡 | Matches verified SOTA (&#124;Δ&#124; ≤ 0.002) |
+| 🟢 | Exceeds verified SOTA (Δ > 0) |
+| 🟩 | Matches verified SOTA (&#124;Δ&#124; ≤ 0.002) |
 | 🔵 | Near verified SOTA (&#124;Δ&#124; ≤ 0.005) |
 | 🔴 | Behind verified SOTA (Δ < −0.005) |
 
@@ -34,11 +34,11 @@ Icon legend:
 | Pgp | Pgp_Broccatelli | AUROC ↑ | 0.933 ± 0.003 | 0.938 [1] | −0.005 | 🔵 | FP+GIN |
 | CYP1A2 | CYP1A2_Veith | AUROC ↑ | **0.963 ± 0.001** | 0.930 [5] | **+0.033** | 🟢 | FP+GIN |
 | CYP2C19 | CYP2C19_Veith | AUROC ↑ | **0.930 ± 0.000** | 0.900 [5] | **+0.030** | 🟢 | FP+GIN |
-| CYP2C9 | CYP2C9_Veith | AUPRC ↑ | 0.858 ± 0.002 | 0.859 [1] | −0.001 | 🟡 | FP+GIN |
-| CYP2D6 | CYP2D6_Veith | AUPRC ↑ | 0.788 ± 0.002 | 0.790 [1] | −0.002 | 🟡 | FP+GIN |
-| CYP3A4 | CYP3A4_Veith | AUPRC ↑ | 0.916 ± 0.001 | 0.916 [1] | 0.000 | 🟡 | FP+GIN |
+| CYP2C9 | CYP2C9_Veith | AUPRC ↑ | 0.858 ± 0.002 | 0.859 [1] | −0.001 | 🟩 | FP+GIN |
+| CYP2D6 | CYP2D6_Veith | AUPRC ↑ | 0.788 ± 0.002 | 0.790 [1] | −0.002 | 🟩 | FP+GIN |
+| CYP3A4 | CYP3A4_Veith | AUPRC ↑ | 0.916 ± 0.001 | 0.916 [1] | 0.000 | 🟩 | FP+GIN |
 
-**Summary: 🟢 × 3 · 🟡 × 3 · 🔵 × 2 · 🔴 × 3.** Beats or matches on 8/11; behind on 2 regression
+**Summary: 🟢 × 3 · 🟩 × 3 · 🔵 × 2 · 🔴 × 3.** Beats or matches on 8/11; behind on 2 regression
 tasks (solubility, Caco-2 — a known ceiling for CatBoost-based models, see [below](#the-regression-gap-catboost-ceiling));
 bioavailability gap is irreducible at 640 total molecules (‡).
 
