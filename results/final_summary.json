@@ -1,0 +1,447 @@
+[
+  {
+    "task": "solubility",
+    "metric": "mae",
+    "sota": 0.761,
+    "best": {
+      "file": "result_dmpnn.json",
+      "model": "dmpnn_rdkit",
+      "mean": 0.788055670261383,
+      "std": 0.004415226869841353,
+      "n": 5
+    },
+    "delta": -0.027055670261383002,
+    "all": [
+      {
+        "file": "result.json",
+        "model": "result",
+        "mean": 0.828305172618755,
+        "std": 0.019349959124819426,
+        "n": 3
+      },
+      {
+        "file": "result_chemprop.json",
+        "model": "chemprop_dmpnn_v1",
+        "mean": 0.8683747186397816,
+        "std": 0.0,
+        "n": 0
+      },
+      {
+        "file": "result_dmpnn.json",
+        "model": "dmpnn_rdkit",
+        "mean": 0.788055670261383,
+        "std": 0.004415226869841353,
+        "n": 5
+      },
+      {
+        "file": "result_gin.json",
+        "model": "result_gin",
+        "mean": 0.8410771920567286,
+        "std": 0.0037596100406393235,
+        "n": 3
+      },
+      {
+        "file": "result_maplight.json",
+        "model": "FP",
+        "mean": 0.7914709843536772,
+        "std": 0.0027363121949762364,
+        "n": 5
+      },
+      {
+        "file": "result_maplight_gin.json",
+        "model": "FP+GIN",
+        "mean": 0.800012241113715,
+        "std": 0.0037772296392933205,
+        "n": 5
+      }
+    ]
+  },
+  {
+    "task": "hia",
+    "metric": "auroc",
+    "sota": 0.989,
+    "best": {
+      "file": "result_maplight_gin.json",
+      "model": "FP+GIN",
+      "mean": 0.9896296296296295,
+      "std": 0.0006584362139917726,
+      "n": 5
+    },
+    "delta": 0.0006296296296295356,
+    "all": [
+      {
+        "file": "result.json",
+        "model": "result",
+        "mean": 0.9411522633744857,
+        "std": 0.042708568900787655,
+        "n": 3
+      },
+      {
+        "file": "result_gin.json",
+        "model": "result_gin",
+        "mean": 0.9728395061728395,
+        "std": 0.0016800341171352312,
+        "n": 3
+      },
+      {
+        "file": "result_maplight_gin.json",
+        "model": "FP+GIN",
+        "mean": 0.9896296296296295,
+        "std": 0.0006584362139917726,
+        "n": 5
+      }
+    ]
+  },
+  {
+    "task": "caco2",
+    "metric": "mae",
+    "sota": 0.256,
+    "best": {
+      "file": "result_maplight_gin.json",
+      "model": "FP+GIN",
+      "mean": 0.27567957108917945,
+      "std": 0.006472329705465052,
+      "n": 5
+    },
+    "delta": -0.01967957108917945,
+    "all": [
+      {
+        "file": "result.json",
+        "model": "result",
+        "mean": 0.279434349496982,
+        "std": 0.0007671129952713824,
+        "n": 3
+      },
+      {
+        "file": "result_chemprop.json",
+        "model": "chemprop_dmpnn_v1",
+        "mean": 0.3939544919893858,
+        "std": 0.0,
+        "n": 0
+      },
+      {
+        "file": "result_dmpnn.json",
+        "model": "dmpnn_rdkit",
+        "mean": 0.3236211359500885,
+        "std": 0.013466963843227289,
+        "n": 5
+      },
+      {
+        "file": "result_gin.json",
+        "model": "result_gin",
+        "mean": 0.29475761929667693,
+        "std": 0.0012097770189639103,
+        "n": 3
+      },
+      {
+        "file": "result_maplight.json",
+        "model": "FP",
+        "mean": 0.27578323361314877,
+        "std": 0.006285271769667561,
+        "n": 5
+      },
+      {
+        "file": "result_maplight_gin.json",
+        "model": "FP+GIN",
+        "mean": 0.27567957108917945,
+        "std": 0.006472329705465052,
+        "n": 5
+      }
+    ]
+  },
+  {
+    "task": "bioavailability",
+    "metric": "auroc",
+    "sota": 0.938,
+    "best": {
+      "file": "result_maplight_gin.json",
+      "model": "FP+GIN",
+      "mean": 0.7433322248087795,
+      "std": 0.006913354950548056,
+      "n": 5
+    },
+    "delta": -0.19466777519122047,
+    "all": [
+      {
+        "file": "result.json",
+        "model": "result",
+        "mean": 0.6273140450060969,
+        "std": 0.1490387249193531,
+        "n": 3
+      },
+      {
+        "file": "result_gin.json",
+        "model": "result_gin",
+        "mean": 0.6783061744817648,
+        "std": 0.02290599088813496,
+        "n": 3
+      },
+      {
+        "file": "result_maplight_gin.json",
+        "model": "FP+GIN",
+        "mean": 0.7433322248087795,
+        "std": 0.006913354950548056,
+        "n": 5
+      }
+    ]
+  },
+  {
+    "task": "bbb",
+    "metric": "auroc",
+    "sota": 0.916,
+    "best": {
+      "file": "result.json",
+      "model": "result",
+      "mean": 0.9132139879091099,
+      "std": 0.004095660351133679,
+      "n": 3
+    },
+    "delta": -0.002786012090890133,
+    "all": [
+      {
+        "file": "result.json",
+        "model": "result",
+        "mean": 0.9132139879091099,
+        "std": 0.004095660351133679,
+        "n": 3
+      },
+      {
+        "file": "result_gin.json",
+        "model": "result_gin",
+        "mean": 0.9087776214300605,
+        "std": 0.013324996709531056,
+        "n": 3
+      },
+      {
+        "file": "result_maplight_gin.json",
+        "model": "FP+GIN",
+        "mean": 0.9130550343964978,
+        "std": 0.0031326753481089264,
+        "n": 5
+      }
+    ]
+  },
+  {
+    "task": "pgp",
+    "metric": "auroc",
+    "sota": 0.938,
+    "best": {
+      "file": "result_maplight_gin.json",
+      "model": "FP+GIN",
+      "mean": 0.9332178085843774,
+      "std": 0.0026280293461122296,
+      "n": 5
+    },
+    "delta": -0.004782191415622528,
+    "all": [
+      {
+        "file": "result.json",
+        "model": "result",
+        "mean": 0.9160223940282591,
+        "std": 0.0018056807763455077,
+        "n": 3
+      },
+      {
+        "file": "result_gin.json",
+        "model": "result_gin",
+        "mean": 0.9233759886252555,
+        "std": 0.00831471475067288,
+        "n": 3
+      },
+      {
+        "file": "result_maplight_gin.json",
+        "model": "FP+GIN",
+        "mean": 0.9332178085843774,
+        "std": 0.0026280293461122296,
+        "n": 5
+      }
+    ]
+  },
+  {
+    "task": "cyp1a2",
+    "metric": "auroc",
+    "sota": 0.93,
+    "best": {
+      "file": "result_maplight_gin.json",
+      "model": "FP+GIN",
+      "mean": 0.962845470961876,
+      "std": 0.0006676214617154966,
+      "n": 5
+    },
+    "delta": 0.032845470961875955,
+    "all": [
+      {
+        "file": "result.json",
+        "model": "result",
+        "mean": 0.9429378869960896,
+        "std": 0.00118539193216638,
+        "n": 3
+      },
+      {
+        "file": "result_gin.json",
+        "model": "result_gin",
+        "mean": 0.9624360706663805,
+        "std": 0.0007075048406339906,
+        "n": 3
+      },
+      {
+        "file": "result_maplight_gin.json",
+        "model": "FP+GIN",
+        "mean": 0.962845470961876,
+        "std": 0.0006676214617154966,
+        "n": 5
+      }
+    ]
+  },
+  {
+    "task": "cyp2c19",
+    "metric": "auroc",
+    "sota": 0.9,
+    "best": {
+      "file": "result_maplight_gin.json",
+      "model": "FP+GIN",
+      "mean": 0.9304463960046014,
+      "std": 0.00039237695326162035,
+      "n": 5
+    },
+    "delta": 0.030446396004601417,
+    "all": [
+      {
+        "file": "result.json",
+        "model": "result",
+        "mean": 0.8937607229293771,
+        "std": 0.0011040106104916098,
+        "n": 3
+      },
+      {
+        "file": "result_gin.json",
+        "model": "result_gin",
+        "mean": 0.9285444250119764,
+        "std": 0.0003029954283471631,
+        "n": 3
+      },
+      {
+        "file": "result_maplight_gin.json",
+        "model": "FP+GIN",
+        "mean": 0.9304463960046014,
+        "std": 0.00039237695326162035,
+        "n": 5
+      }
+    ]
+  },
+  {
+    "task": "cyp2c9",
+    "metric": "auprc",
+    "sota": 0.859,
+    "best": {
+      "file": "result_maplight_gin.json",
+      "model": "FP+GIN",
+      "mean": 0.858188818835897,
+      "std": 0.001835026526773021,
+      "n": 5
+    },
+    "delta": -0.0008111811641029476,
+    "all": [
+      {
+        "file": "result.json",
+        "model": "result",
+        "mean": 0.7866557258243497,
+        "std": 0.0,
+        "n": 1
+      },
+      {
+        "file": "result_gin.json",
+        "model": "result_gin",
+        "mean": 0.8564668457488888,
+        "std": 0.0005769114109602379,
+        "n": 3
+      },
+      {
+        "file": "result_maplight_gin.json",
+        "model": "FP+GIN",
+        "mean": 0.858188818835897,
+        "std": 0.001835026526773021,
+        "n": 5
+      }
+    ]
+  },
+  {
+    "task": "cyp2d6",
+    "metric": "auprc",
+    "sota": 0.79,
+    "best": {
+      "file": "result_maplight_gin.json",
+      "model": "FP+GIN",
+      "mean": 0.787647563369527,
+      "std": 0.00201168790257064,
+      "n": 5
+    },
+    "delta": -0.0023524366304730204,
+    "all": [
+      {
+        "file": "result.json",
+        "model": "result",
+        "mean": 0.7144634604947261,
+        "std": 0.0,
+        "n": 1
+      },
+      {
+        "file": "result_gin.json",
+        "model": "result_gin",
+        "mean": 0.7857547722909822,
+        "std": 0.0007771527983650267,
+        "n": 3
+      },
+      {
+        "file": "result_maplight_gin.json",
+        "model": "FP+GIN",
+        "mean": 0.787647563369527,
+        "std": 0.00201168790257064,
+        "n": 5
+      }
+    ]
+  },
+  {
+    "task": "cyp3a4",
+    "metric": "auprc",
+    "sota": 0.916,
+    "best": {
+      "file": "result_maplight_gin.json",
+      "model": "FP+GIN",
+      "mean": 0.9155729657875538,
+      "std": 0.0008210477276854194,
+      "n": 5
+    },
+    "delta": -0.0004270342124462756,
+    "all": [
+      {
+        "file": "result.json",
+        "model": "result",
+        "mean": 0.879992401678734,
+        "std": 0.0,
+        "n": 1
+      },
+      {
+        "file": "result_gin.json",
+        "model": "result_gin",
+        "mean": 0.9146380430642265,
+        "std": 0.0015247137729193902,
+        "n": 3
+      },
+      {
+        "file": "result_maplight.json",
+        "model": "FP",
+        "mean": 0.8810315590854143,
+        "std": 0.0002984602439661302,
+        "n": 5
+      },
+      {
+        "file": "result_maplight_gin.json",
+        "model": "FP+GIN",
+        "mean": 0.9155729657875538,
+        "std": 0.0008210477276854194,
+        "n": 5
+      }
+    ]
+  }
+]
