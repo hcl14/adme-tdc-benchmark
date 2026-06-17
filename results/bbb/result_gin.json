@@ -1,0 +1,19 @@
+{
+  "task": "bbb",
+  "tdc_name": "BBB_Martins",
+  "task_type": "classification",
+  "metric": "auroc",
+  "sota": 0.916,
+  "mean": 0.9087776214300605,
+  "std": 0.013324996709531056,
+  "seeds": [
+    0.9174874921826142,
+    0.8899507504690432,
+    0.9188946216385241
+  ],
+  "n_train": 1421,
+  "n_val": 203,
+  "n_test": 406,
+  "feature_dim": 2872,
+  "use_gin": true
+}

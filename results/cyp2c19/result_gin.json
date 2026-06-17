@@ -1,0 +1,19 @@
+{
+  "task": "cyp2c19",
+  "tdc_name": "CYP2C19_Veith",
+  "task_type": "classification",
+  "metric": "auroc",
+  "sota": 0.9,
+  "mean": 0.9285444250119764,
+  "std": 0.0003029954283471631,
+  "seeds": [
+    0.9286389894285296,
+    0.9288590855101333,
+    0.9281352000972664
+  ],
+  "n_train": 8865,
+  "n_val": 1266,
+  "n_test": 2534,
+  "feature_dim": 2872,
+  "use_gin": true
+}

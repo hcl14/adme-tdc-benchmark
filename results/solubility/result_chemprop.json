@@ -1,0 +1,12 @@
+{
+  "task": "solubility",
+  "tdc_name": "Solubility_AqSolDB",
+  "task_type": "regression",
+  "metric": "mae",
+  "sota": 0.761,
+  "mae": 0.8683747186397816,
+  "model": "chemprop_dmpnn_v1",
+  "n_train": 6987,
+  "n_val": 998,
+  "n_test": 1997
+}

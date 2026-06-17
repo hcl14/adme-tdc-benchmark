@@ -1,0 +1,19 @@
+{
+  "task": "cyp2d6",
+  "tdc_name": "CYP2D6_Veith",
+  "task_type": "classification",
+  "metric": "auprc",
+  "sota": 0.79,
+  "mean": 0.7857547722909822,
+  "std": 0.0007771527983650267,
+  "seeds": [
+    0.7862195390514009,
+    0.7846598672578173,
+    0.7863849105637287
+  ],
+  "n_train": 9191,
+  "n_val": 1313,
+  "n_test": 2626,
+  "feature_dim": 2872,
+  "use_gin": true
+}

@@ -1,0 +1,19 @@
+{
+  "task": "bioavailability",
+  "tdc_name": "Bioavailability_Ma",
+  "task_type": "classification",
+  "metric": "auroc",
+  "sota": 0.938,
+  "mean": 0.6783061744817648,
+  "std": 0.02290599088813496,
+  "seeds": [
+    0.7103425340871301,
+    0.666444961755903,
+    0.6581310276022614
+  ],
+  "n_train": 448,
+  "n_val": 64,
+  "n_test": 128,
+  "feature_dim": 2872,
+  "use_gin": true
+}

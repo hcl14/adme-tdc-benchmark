@@ -1,0 +1,18 @@
+{
+  "task": "cyp1a2",
+  "tdc_name": "CYP1A2_Veith",
+  "task_type": "classification",
+  "metric": "auroc",
+  "sota": 0.93,
+  "mean": 0.9429378869960896,
+  "std": 0.00118539193216638,
+  "seeds": [
+    0.9422776521991691,
+    0.9446024700400308,
+    0.9419335387490686
+  ],
+  "n_train": 8805,
+  "n_val": 1257,
+  "n_test": 2517,
+  "feature_dim": 2572
+}

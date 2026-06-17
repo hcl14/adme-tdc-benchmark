@@ -1,0 +1,18 @@
+{
+  "task": "hia",
+  "tdc_name": "HIA_Hou",
+  "task_type": "classification",
+  "metric": "auroc",
+  "sota": 0.989,
+  "mean": 0.9411522633744857,
+  "std": 0.042708568900787655,
+  "seeds": [
+    0.965843621399177,
+    0.8810699588477368,
+    0.9765432098765432
+  ],
+  "n_train": 404,
+  "n_val": 57,
+  "n_test": 117,
+  "feature_dim": 2572
+}

@@ -1,0 +1,19 @@
+{
+  "task": "pgp",
+  "tdc_name": "Pgp_Broccatelli",
+  "task_type": "classification",
+  "metric": "auroc",
+  "sota": 0.938,
+  "mean": 0.9233759886252555,
+  "std": 0.00831471475067288,
+  "seeds": [
+    0.9280858437749934,
+    0.9303519061583578,
+    0.9116902159424153
+  ],
+  "n_train": 852,
+  "n_val": 121,
+  "n_test": 245,
+  "feature_dim": 2872,
+  "use_gin": true
+}

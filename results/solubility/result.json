@@ -1,0 +1,18 @@
+{
+  "task": "solubility",
+  "tdc_name": "Solubility_AqSolDB",
+  "task_type": "regression",
+  "metric": "mae",
+  "sota": 0.761,
+  "mean": 0.828305172618755,
+  "std": 0.019349959124819426,
+  "seeds": [
+    0.8460785622693605,
+    0.8013987291147363,
+    0.8374382264721683
+  ],
+  "n_train": 6987,
+  "n_val": 998,
+  "n_test": 1997,
+  "feature_dim": 2572
+}

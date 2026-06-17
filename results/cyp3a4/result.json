@@ -1,0 +1,17 @@
+{
+  "task": "cyp3a4",
+  "tdc_name": "CYP3A4_Veith",
+  "task_type": "classification",
+  "metric": "auprc",
+  "sota": 0.916,
+  "mean": 0.879992401678734,
+  "std": 0.0,
+  "seeds": [
+    0.879992401678734
+  ],
+  "n_train": 8629,
+  "n_val": 1232,
+  "n_test": 2467,
+  "feature_dim": 2572,
+  "use_gin": false
+}

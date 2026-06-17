@@ -1,0 +1,49 @@
+# Python environment
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Large / generated embedding files — regenerate with scripts/train_gin.py
+results/gin/*.npy
+results/gin_pretrained*/
+results/gin_pretrained_contextpred/
+
+# Training logs
+results/*.log
+
+# CatBoost training artifacts
+catboost_info/
+
+# TDC dataset cache (downloaded automatically on first run)
+datasets/
+
+# Pretrained GIN weight (7 MB, downloaded by scripts/extract_pretrained_gin.py)
+gin_supervised_contextpred_pre_trained.pth
+
+# Internal Claude dev files
+.claude/
+memory/
+
+# Internal planning / analysis docs (not part of released code)
+PROJECT_KNOWLEDGE.md
+AGENTS.md
+ADMET_DATASET_COMPATIBILITY.md
+ADMET_DATA_AVAILABILITY.md
+ADMET_SOTA_BENCHMARKS.md
+
+# Paper PDFs (copyright)
+papers/*.pdf
+papers/*.tsv
+
+# Misc
+*.DS_Store
+.env
+top1000_with_adme.csv
+chemrxiv.15000061_v2.pdf
+adme_metrics.txt

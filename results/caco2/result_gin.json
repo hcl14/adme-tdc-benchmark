@@ -1,0 +1,19 @@
+{
+  "task": "caco2",
+  "tdc_name": "Caco2_Wang",
+  "task_type": "regression",
+  "metric": "mae",
+  "sota": 0.256,
+  "mean": 0.29475761929667693,
+  "std": 0.0012097770189639103,
+  "seeds": [
+    0.2930757378605716,
+    0.2953269043879092,
+    0.29587021564154986
+  ],
+  "n_train": 637,
+  "n_val": 91,
+  "n_test": 182,
+  "feature_dim": 2872,
+  "use_gin": true
+}

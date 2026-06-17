@@ -1,0 +1,12 @@
+{
+  "task": "caco2",
+  "tdc_name": "Caco2_Wang",
+  "task_type": "regression",
+  "metric": "mae",
+  "sota": 0.256,
+  "mae": 0.3939544919893858,
+  "model": "chemprop_dmpnn_v1",
+  "n_train": 637,
+  "n_val": 91,
+  "n_test": 182
+}
